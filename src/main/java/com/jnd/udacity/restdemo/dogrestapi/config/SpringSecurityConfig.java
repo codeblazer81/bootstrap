@@ -23,6 +23,7 @@ public class SpringSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers( "/swagger-ui.html").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
