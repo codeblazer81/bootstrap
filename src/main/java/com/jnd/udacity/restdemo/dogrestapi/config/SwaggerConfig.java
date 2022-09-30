@@ -2,11 +2,13 @@ package com.jnd.udacity.restdemo.dogrestapi.config;
 
 import java.util.Collections;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
-
+import org.springframework.context.annotation.Configuration;
 
 import com.google.common.base.Predicate;
 
+import io.swagger.models.Swagger;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -16,8 +18,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
+@ConditionalOnClass(value = {Swagger.class})
 @EnableSwagger2
+@Configuration
 
 public class SwaggerConfig {
     @Bean
